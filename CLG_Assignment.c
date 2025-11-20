@@ -164,9 +164,90 @@ printf("\n");
 //Write a C program to enter any number and print its reverse.
 
 printf("Program 11 \n");
+int num10, rev = 0, remx;
+printf("Enter any number: ");
+scanf("%d", &num10);
+
+while (num10 != 0)
+{
+    remx = num10 % 10;
+    rev = rev * 10 + remx;
+    num10 = num10/10;
 }
 
+printf("Reversed number = %d\n", rev);
+printf("%n");
+
+//Write a C program to enter any number is Prime number or not.
+
+printf("Program 12 \n");
+int num, i, isPrime = 1;
+
+printf("Enter any number: ");
+scanf("%d", &num);
+
+if (num <= 1) {
+    isPrime = 0;   // 0 and 1 are not prime
+} 
+else {
+    for (i = 2; i <= num / 2; i++) {
+        if (num % i == 0) {
+            isPrime = 0;
+            break;
+            }
+        }
+    }
+
+if (isPrime)
+    printf("%d is a Prime number.\n", num);
+else
+    printf("%d is NOT a Prime number.\n", num);
+
+    printf("\n");
 
 
+//Write a C program to check whether a number is an armstrong number or not.
+
+int num, originalNum, remainder, result = 0;
+
+    printf("Enter any number: ");
+    scanf("%d", &num);
+
+    originalNum = num;
+
+    while (num != 0) {
+        remainder = num % 10;
+        result += remainder * remainder * remainder; // cube of digit
+        num /= 10;
+    }
+
+    if (result == originalNum)
+        printf("%d is an Armstrong number.\n", originalNum);
+    else
+        printf("%d is NOT an Armstrong number.\n", originalNum);
+
+
+//
+
+int num, i, sum = 0;
+
+    printf("Enter any number: ");
+    scanf("%d", &num);
+
+    for (i = 1; i <= num / 2; i++) {
+        if (num % i == 0) {
+            sum += i;
+        }
+    }
+
+    if (sum == num)
+        printf("%d is a Perfect number.\n", num);
+    else
+        printf("%d is NOT a Perfect number.\n", num);
+
+
+
+
+}
 
 
