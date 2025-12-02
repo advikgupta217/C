@@ -246,8 +246,292 @@ int num, i, sum = 0;
         printf("%d is NOT a Perfect number.\n", num);
 
 
+//(15)Write a C program to print Fibonacci series up to n terms.
+    int n, i;
+    int a = 0, b = 1, next;
+    printf("Enter number of terms: ");
+    scanf("%d", &n);
+    printf("Fibonacci series: ");
+
+    for(int i = 1; i <= n; i++){
+        printf("%d", a);
+        next = a + b;
+        a = b;
+        b = next;
+    }
+
+//(16)Write a C program to print the following pattern.
+    int rows = 5;
+    for(int i = 0; i < rows; i++){
+        for(int j = 0; j <= i; j++){
+            printf("* ");
+        }
+        printf("\n");
+    }
+
+//(17)Write a C program to print the following pattern:
+
+    int rows1 = 5;
+    for (int i = 0; i < rows1; i++){
+        for (int j = 0; j < 2*(rows1-i) - 1 ; j++){
+            printf(" ");
+        }
+        for (int k = 0; k < 2*i+1 ; k++){
+            printf("*");
+        }
+        printf("\n");
+    }
+    
+//(18)Write a C program to find maximum and minimum element in an array
+
+    int n9,i;
+    printf("Enter number of Elements");
+    scanf("%d", &n9);
+    int arr[n9];
+
+    printf("Enter %d elements: \n", n9);
+    for (int i = 0; i < n9; i++){
+        scanf("%d", &arr[i]);
+    }
+
+    int max = arr[0];
+    int min = arr[0];
+
+    for (int i = 0; i < n9; i++){
+        if(arr[i] > max)
+            max = arr[i];
+        if(arr[i] < min)
+            min = arr[i];
+    }
+    printf("Maximum element = %d\n", max);
+    printf("Minimum element = %d\n", min);
+
+//(19)Write a C program to linear search an element in an array.
+
+    int n10, i, key, found = 0;
+    printf("Enter number of elements: ");
+    scanf("%d", &n10);
+    int arr1[n10];
+
+    printf("Enter %d elements: \n", n10);
+    for (int i = 0; i < n10; i++){
+        scanf("%d", &arr1[i]);
+    }
+
+    printf("Enter the number to search");
+    scanf("%d", &key);
+
+    for (int i = 0; i < n10; i++){
+        if (arr[i] == key){
+            printf("Element %d found at position %d\n", key, i+1);
+            found = 1;
+            break;
+        }
+    }
+    if (!found){
+        printf("Element %d not found\n", key);
+    }
+    
+
+//(20) Write a C program to sort an array of elements in ascending order.
+
+    int n11, i, j1, temp;
+    printf("Enter number of elements: ");
+    scanf("%d", &n11);
+    int arr2[n11];
+
+    printf("Enter %d elements: \n", n11);
+    for (int i = 0; i < n11; i++){
+        scanf("%d", &arr2[i]);
+    }
+
+    for (int i = 0; i < n11 - 1; i++){
+        for (int j = 0; j < n - i - 1; j++){
+            if (arr2[j] > arr2[ j + 1]){
+                temp = arr2[j];
+                arr2[j] = arr2[j+1];
+                arr2[j+1] = temp;
+            }
+        }
+    }
+
+    printf("Sorted array in ascending order: \n");
+    for (int i = 0; i < n11; i++){
+        printf("%d", arr2[i]);
+    }
 
 
+//(21) Write a C program to search(Binary search) an element in an array
+
+    int n12, i, key1, low, high, mid;
+    printf("Enter number of elements");
+    scanf("%d", &n12);
+
+    int arr3[n12];
+
+    printf("Enter %d sorted elements(ascending): \n", n12);
+    for(int i = 0; i < n12; i++){
+        scanf("%d", &arr3[i]);
+    }
+    printf("Enter the elements to search: ");
+    scanf("%d", &key1);
+
+    low = 0;
+    high = n12 - 1;
+
+    while(low <= high){
+        mid = (low + high)/2;
+        if(arr3[mid] == key1){
+            printf("Element %d found at position %d\n",key, mid+1);
+        }
+        else if(arr3[mid] < key1){
+            low = mid + 1;
+        }
+        else{
+            high = mid - 1;
+        }
+    }
+    printf("Element %d not found in the array \n", key1);
+
+
+//(22)Write a C program to add/subtract two matrices.
+# include<stdio.h>
+
+void main(){
+    int a[10][10], b[10][10], sum[10][10];
+    int r, c;
+
+    // Input matrix size
+    printf("Enter number of rows: ");
+    scanf("%d", &r);
+    printf("Enter number of columns: ");
+    scanf("%d", &c);
+
+    // Input first matrix
+    printf("\nEnter elements of Matrix A:\n");
+    for (int i = 0; i < r; i++) {
+        for (int j = 0; j < c; j++) {
+            scanf("%d", &a[i][j]);
+        }
+    }
+
+    // Input second matrix
+    printf("\nEnter elements of Matrix B:\n");
+    for (int i = 0; i < r; i++) {
+        for (int j = 0; j < c; j++) {
+            scanf("%d", &b[i][j]);
+        }
+    }
+
+    // Add matrices
+    for (int i = 0; i < r; i++) {
+        for (int j = 0; j < c; j++) {
+            sum[i][j] = a[i][j] + b[i][j];
+        }
+    }
+
+    // Display result
+    printf("\nMatrix Addition (A + B):\n");
+    for (int i = 0; i < r; i++) {
+        for (int j = 0; j < c; j++) {
+            printf("%d ", sum[i][j]);
+        }
+        printf("\n");
+    }
 }
 
 
+//(23) Write a C program for matrix multiplication
+#include<stdio.h>
+
+void main(){
+    int r1, c1, r2, c2;
+
+    // Input size of matrices
+    printf("Enter rows and columns of Matrix A: ");
+    scanf("%d %d", &r1, &c1);
+
+    printf("Enter rows and columns of Matrix B: ");
+    scanf("%d %d", &r2, &c2);
+
+    // Check multiplication validity
+    if (c1 != r2) {
+        printf("Matrix multiplication not possible!\n");
+        return 0;
+    }
+
+    int A[10][10], B[10][10], result[10][10];
+
+    // Input Matrix A
+    printf("Enter elements of Matrix A:\n");
+    for (int i = 0; i < r1; i++) {
+        for (int j = 0; j < c1; j++) {
+            scanf("%d", &A[i][j]);
+        }
+    }
+
+    // Input Matrix B
+    printf("Enter elements of Matrix B:\n");
+    for (int i = 0; i < r2; i++) {
+        for (int j = 0; j < c2; j++) {
+            scanf("%d", &B[i][j]);
+        }
+    }
+
+    // Matrix multiplication
+    for (int i = 0; i < r1; i++) {
+        for (int j = 0; j < c2; j++) {
+            result[i][j] = 0;
+            for (int k = 0; k < c1; k++) {
+                result[i][j] += A[i][k] * B[k][j];
+            }
+        }
+    }
+
+    // Output result
+    printf("Resultant Matrix (A x B):\n");
+    for (int i = 0; i < r1; i++) {
+        for (int j = 0; j < c2; j++) {
+            printf("%d ", result[i][j]);
+        }
+        printf("\n");
+    }
+}
+
+//(24) Write a C program to find the sum, square and cube of any number using function.
+
+#include <stdio.h>
+
+// Function to find sum of two numbers
+int sum(int a, int b) {
+    return a + b;
+}
+
+// Function to find square of a number
+int square(int n) {
+    return n * n;
+}
+
+// Function to find cube of a number
+int cube(int n) {
+    return n * n * n;
+}
+
+int main() {
+    int num1, num2, n;
+
+    // Input two numbers to find sum
+    printf("Enter two numbers to find their sum:\n");
+    scanf("%d %d", &num1, &num2);
+
+    // Input one number for square and cube
+    printf("Enter a number to find its square and cube:\n");
+    scanf("%d", &n);
+
+    // Display results
+    printf("\nSum of %d and %d = %d\n", num1, num2, sum(num1, num2));
+    printf("Square of %d = %d\n", n, square(n));
+    printf("Cube of %d = %d\n", n, cube(n));
+
+    return 0;
+}
